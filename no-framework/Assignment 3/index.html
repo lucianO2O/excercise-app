@@ -3,58 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Menu Example</title>
 </head>
 <body>
 
     <!-- header/ dropdown navbar -->
     <header class="hero">
-        <section class="top_nav-bar">
-            <div class="dropdown dropdown-primary">
+        <section class="hero_nav-bar">
+            <div class="hero_dropdown">
                 <h3>File</h3>
-                <a href=""></a>
-                <a href=""></a>
-                <a href=""></a>
-                <a href=""></a>
-                <a href=""></a>
+                <div class="hero_dropdown_content">
+                    <a href="">New</a>
+                    <a href="">Open</a>
+                    <a href="">Save</a>
+                    <a href="">Print</a>
+                    <a href="">Close</a>
+                </div>
             </div>
-            <div class="dropdown dropdown-secondary">
-
+            <div class="hero_dropdown hero_dropdown-edit">
+                <h3 class="edit_btn" tabindex="0">Edit</h3>
+                <div class="hero_dropdown_content">
+                    <a href="">Undo</a>
+                    <a href="">Redo</a>
+                    <a href="">Cut</a>
+                    <a href="">Copy</a>
+                    <a href="">Paste</a>
+                    <a href="">Find</a>
+                    <a href="">Replace</a>
+                </div>
             </div>
-            <div class="dropdown dropdown-tertiary">
+            <div class="hero_dropdown">
                 <h3>View</h3>
-                <a href=""></a>
-                <a href=""></a>
-                <a href=""></a>
-                <a href=""></a>
-                <a href=""></a>
-                <a href=""></a>
-                <a href=""></a>
-                <a href=""></a>
+                <div class="hero_dropdown_content">
+                    <a href="">Zoom In</a>
+                    <a href="">Zoom Out</a>
+                    <a href="">Actual Size</a>
+                    <a href="">Fit Page</a>
+                    <a href="">Fit Width</a>
+                    <a href="">Fit Height</a>
+                    <a href="">Rotate Left</a>
+                    <a href="">Rotate Right</a>
+                    <a href="">Full Screen</a>
+                </div>
             </div>
         </section>
     </header>
-    <!-- test comment -->
+
     <!-- containers -->
-    <section class="container">
-        <div class="instructions_container">
-            <h3>Instructions</h3>
-            <p>
-                Recreate this page using 
-                <span class="container_highlight">only CSS</span>. 
-                Do yourself a favor and 1) Do not view the source. 
-                Figure it out yourself. 2) Do not search for the solution. 
-                Learn CSS until you know enough to do this.
-            </p>
-        </div>
-        <div class="extra_credit_container">
-            <h3>Extra Credit</h3>
-            <p>
-                Notice how the Edit menu (besides for not being bold) reacts to clicks. 
-                If you click the edit menu, it remains open until you click somewhere 
-                else. (This you might need to search for)
-            </p>
-        </div>
-    </section>
+    <div class="container">
+        <h3 class="container_title">Instructions</h3>
+        <p class="container_content">
+            Recreate this page using 
+            <span class="container_highlight">only CSS</span>. 
+            Do yourself a favor and 1) Do not view the source. 
+            Figure it out yourself. 2) Do not search for the solution. 
+            Learn CSS until you know enough to do this.
+        </p>
+    </div>
+    <div class="container border_yellow">
+        <h3 class="container_title">Extra Credit</h3>
+        <p class="container_content">
+            Notice how the Edit menu (besides for not being bold) reacts to clicks. 
+            If you click the edit menu, it remains open until you click somewhere 
+            else. (This you might need to search for)
+        </p>
+    </div>
 </body>
 </html>
