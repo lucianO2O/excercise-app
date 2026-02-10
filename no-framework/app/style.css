@@ -3,6 +3,7 @@
     border: 0;
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
+    color: #FFC300;
 }
 
 
@@ -40,4 +41,14 @@ body {
 .hero_nav-link:hover {
     color: #003566;
     background-color: #FFD60A;
+}
+
+/* welcome container */
+
+.container {
+    display: flex;
+    background-color: #003566;
+    margin: 5rem;
+    padding: 5rem;
+    justify-content: center;
 }
