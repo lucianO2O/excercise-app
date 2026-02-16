@@ -33,3 +33,21 @@
     font-weight: 400;
 }
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.panel .checkboxes {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel .checkboxes .panel-block {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding: .5em .75em;
+    margin-top: 0px !important; 
+}
