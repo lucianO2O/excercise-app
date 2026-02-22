@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Home</title>
 </head>
+
 <body>
 
     <header class="hero">
         <nav class="navbar">
             <div class="navbar-brand">
-                <a href="" class="navbar-item">Home</a>
-                <a href="" class="navbar-item">Register</a>
-                <a href="" class="navbar-item">Sign in</a>
-
-                <div class="navbar-burger">
-
+                <a href="" id="home" class="navbar-item">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a href="" class="navbar-link">Get Started</a>
+                    <div class="navbar-dropdown">
+                        <a href="" class="navbar-item">Register</a>
+                        <a href="" class="navbar-item is-selected">Login</a>
+                    </div>
                 </div>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-brand">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
             <div class="navbar-menu">
                 <div class="navbar-start">
@@ -35,5 +45,9 @@
     <section>
 
     </section>
+    <script>
+
+    </script>
 </body>
+
 </html>

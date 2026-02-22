@@ -18,14 +18,14 @@ body {
 
 .navbar {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 .navbar-brand {
     display: flex;
 }
 
-.navbar-brand .navbar-item {
+.navbar-brand #home, .navbar-link{
     display: flex;
     justify-content: center;
     color: #FFC300;
@@ -36,7 +36,17 @@ body {
     min-width: 5rem;
 }
 
-.navbar-brand .navbar-item:hover {
+/* dropdown arrow styling */
+.navbar-brand .navbar-link::after {
+    border-color: #FFD60A;
+}
+
+.navbar-brand .navbar-link:hover::after {
+    border-color: #003566;
+}
+
+.navbar-brand #home:hover,
+.navbar-brand .navbar-link:hover {
     color: #003566;
     background-color: #FFD60A;
 }
