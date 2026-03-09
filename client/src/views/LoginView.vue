@@ -4,7 +4,8 @@
 
 <template>
   <div class="columns is-centered">
-    <div class="column box is-three-quarters mt-6 p-5">
+
+    <div class="column container box is-three-quarters mt-6 p-5">
       <div>
         <h1 class="title is-2">Log In</h1>
       </div>
@@ -32,9 +33,10 @@
         </p>
       </div>
 
-      <div class="button">
-
+      <div class="button is-link is-inverted">
+        Enter
       </div>
+
     </div>
   </div>
 </template>
