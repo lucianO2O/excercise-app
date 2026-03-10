@@ -1,0 +1,30 @@
+{
+  "name": "excercise-app",
+  "version": "1.0.0",
+  "description": "App tracking excercise habits - project to be completed in Web Development course over the Spring '26 semester",
+  "homepage": "https://github.com/lucianO2O/Excercise-App#readme",
+  "bugs": {
+    "url": "https://github.com/lucianO2O/Excercise-App/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucianO2O/Excercise-App.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch server/index.ts"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.25",
+    "@types/node": "^20.19.33",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

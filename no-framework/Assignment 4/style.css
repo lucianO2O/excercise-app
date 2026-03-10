@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-brand .logo, 
+.navbar-brand .navbar-burger,
+.navbar-start .navbar-item,
+.navbar-start .navbar-link,
+.navbar-start .navbar-link,
+.navbar-item .download {
+    color: #fff;
+}
+
+.navbar-start .navbar-link::after {
+    border-color: #fff;
+}
+
+.navbar-brand .logo {
+    padding: 15px 50px 15px 10px;
+}
+
+.navbar-start .navbar-button:hover,
+.navbar-brand .logo:hover {
+    background-color: #00b99b;
+}
+
+.navbar-end .download:hover {
+    background-color: #00c5a6;
+}
+
+.navbar-end .btn-text {
+    font-weight: 400;
+}
+
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+}
+
+.panel {
+    margin: 0px;
+}
+
+.panel .checkboxes {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+
+.panel .checkboxes .panel-block {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding: .5em .75em;
+    margin: 0px;
+}
