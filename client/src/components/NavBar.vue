@@ -22,16 +22,30 @@ const isActive = ref(false);
 
     <div class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-start">
-        <RouterLink class="navbar-item has-icons-left is-active" to="/activity">
-          <span class="icon is-small">
+        <RouterLink class="navbar-item has-icons-left is-active px-4" to="/activity">
+          <span class="icon is-small mr-1">
             <i class="fas fa-person-running"></i>
           </span>
-          Activity
+          My Activity
+        </RouterLink>
+
+        <RouterLink class="navbar-item has-icons-left px-4" to="/statistics">
+          <span class="icon is-small mr-1">
+            <i class="fas fa-chart-line"></i>
+          </span>
+          Statistics
+        </RouterLink>
+
+        <RouterLink class="navbar-item has-icons-left px-4" to="/friends">
+          <span class="icon is-small mr-1">
+            <i class="fas fa-users"></i>
+          </span>
+          Friends Activity
         </RouterLink>
       </div>
 
       <div class="navbar-end">
-        <RouterLink class="navbar-item" to="/">
+        <RouterLink class="navbar-item px-4" to="/">
           Home
         </RouterLink>
 
@@ -54,11 +68,4 @@ const isActive = ref(false);
   </nav>
 </template>
 
-<style scoped>
-.navbar-brand .navbar-item img {
-  height: 3.25rem;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-}
-</style>
+<style scoped></style>
