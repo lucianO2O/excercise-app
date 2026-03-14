@@ -6,7 +6,7 @@ export const useAuthStore = defineStore('auth', () => {
   const usersStore = useUsersStore()
 
   const isLoggedIn = computed(() => usersStore.user !== null)
-  const isAdmin = computed(() => usersStore.user?.username === 'admin')
+  const isAdmin = computed(() => usersStore.user?.role === 'admin')
 
   const login = (identifier: string, password: string): boolean => {
     const found = usersStore.authUser(identifier, password)
