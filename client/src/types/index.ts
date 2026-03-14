@@ -6,6 +6,8 @@ export type User = {
   email: string
   password: string
   phone: string
+  role: string
+  exercises?: Exercise[]
 }
 
 export type UserLogin = {
@@ -21,4 +23,15 @@ export type UserRegister = {
   email: string
   password: string
   phone: string
+}
+
+export type Exercise = {
+  id: number
+  title: string
+  date: string
+  duration: number
+  userId: User['id']
+  picture: string
+  location: string
+  exerciseType: string
 }
