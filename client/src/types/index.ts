@@ -10,28 +10,19 @@ export type User = {
   exercises?: Exercise[]
 }
 
-export type UserLogin = {
-  email: string
-  username: string
-  password: string
-}
-
-export type UserRegister = {
-  username: string
-  firstName: string
-  lastName: string
-  email: string
-  password: string
-  phone: string
-}
-
 export type Exercise = {
   id: number
   title: string
+  exerciseType: ExerciseType
   date: string
-  duration: number
+  duration: string
+  calories: string
+  pace?: string
+  distance?: string
   userId: User['id']
-  picture: string
-  location: string
-  exerciseType: string
+  picture?: string
+  location?: string
 }
+
+export type ExerciseType = 'running' | 'cycling' | 'swimming' | 'weightlifting' | 'yoga' | 'other' | 'none'
+
