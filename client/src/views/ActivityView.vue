@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import ExerciseModal from '@/components/ExerciseModal.vue';
-import { ref } from 'vue';
+import { ref } from 'vue'
+import AddExerciseForm from '@/components/AddExerciseForm.vue'
 
-const addExercise = ref(ExerciseModal);
+const showModal = ref(false)
+
 
 </script>
 
@@ -15,16 +16,17 @@ const addExercise = ref(ExerciseModal);
 
         <hr>
 
-        <button class="button is-large" >
+        <button class="button is-large" @click="showModal = true">
           Add Exercise
         </button>
+        <AddExerciseForm :show="showModal" @close="showModal = false" />
 
         <div class="columns container has-text-centered">
           <div class="column container box has-text-centered m-3">
             <div class="card">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="https://bulma.io/assets/images/placeholders/1280x960.png" alt="Placeholder image" />
+                  <img src="" alt="Placeholder image" />
                 </figure>
               </div>
               <div class="card-content">
@@ -55,7 +57,7 @@ const addExercise = ref(ExerciseModal);
             <div class="card">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="https://bulma.io/assets/images/placeholders/1280x960.png" alt="Placeholder image" />
+                  <img src="" alt="Placeholder image" />
                 </figure>
               </div>
               <div class="card-content">
