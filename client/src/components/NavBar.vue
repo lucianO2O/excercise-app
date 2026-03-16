@@ -19,6 +19,26 @@ const isActive = ref(false);
       <RouterLink class="navbar-item " to="/">
         <img src="./images/chud-walker-logo.png" alt="Logo">
       </RouterLink>
+      <RouterLink v-if="user" class="navbar-item has-icons-left is-active px-4" to="/activity">
+        <span class="icon is-small mr-1">
+          <i class="fas fa-person-running"></i>
+        </span>
+        My Activity
+      </RouterLink>
+
+      <RouterLink v-if="user" class="navbar-item has-icons-left px-4" to="/statistics">
+        <span class="icon is-small mr-1">
+          <i class="fas fa-chart-line"></i>
+        </span>
+        Statistics
+      </RouterLink>
+
+      <RouterLink v-if="user" class="navbar-item has-icons-left px-4" to="/friends">
+        <span class="icon is-small mr-1">
+          <i class="fas fa-users"></i>
+        </span>
+        Friends Activity
+      </RouterLink>
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="isActive = !isActive"
         :class="{ 'is-active': isActive }" data-target="navbar-menu">
         <span aria-hidden="true"></span>
@@ -30,32 +50,10 @@ const isActive = ref(false);
 
     <div class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-start">
-        <RouterLink v-if="user" class="navbar-item has-icons-left is-active px-4" to="/activity">
-          <span class="icon is-small mr-1">
-            <i class="fas fa-person-running"></i>
-          </span>
-          My Activity
-        </RouterLink>
-
-        <RouterLink v-if="user" class="navbar-item has-icons-left px-4" to="/statistics">
-          <span class="icon is-small mr-1">
-            <i class="fas fa-chart-line"></i>
-          </span>
-          Statistics
-        </RouterLink>
-
-        <RouterLink v-if="user" class="navbar-item has-icons-left px-4" to="/friends">
-          <span class="icon is-small mr-1">
-            <i class="fas fa-users"></i>
-          </span>
-          Friends Activity
-        </RouterLink>
-
         <div v-if="admin" class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
             Admin
           </a>
-
           <div class="navbar-dropdown">
             <RouterLink class="navbar-item" to="/users">
               Users
