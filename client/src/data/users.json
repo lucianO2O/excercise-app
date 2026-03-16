@@ -418,7 +418,7 @@
                 "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
                 "network": "Ethereum (ERC20)"
             },
-            "role": "moderator"
+            "role": "user"
         },
         {
             "id": 7,
@@ -488,7 +488,7 @@
                 "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
                 "network": "Ethereum (ERC20)"
             },
-            "role": "moderator"
+            "role": "user"
         },
         {
             "id": 8,
@@ -558,7 +558,7 @@
                 "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
                 "network": "Ethereum (ERC20)"
             },
-            "role": "moderator"
+            "role": "user"
         },
         {
             "id": 9,
@@ -628,7 +628,7 @@
                 "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
                 "network": "Ethereum (ERC20)"
             },
-            "role": "moderator"
+            "role": "user"
         },
         {
             "id": 10,
@@ -698,7 +698,7 @@
                 "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
                 "network": "Ethereum (ERC20)"
             },
-            "role": "moderator"
+            "role": "user"
         },
         {
             "id": 11,
@@ -768,7 +768,7 @@
                 "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
                 "network": "Ethereum (ERC20)"
             },
-            "role": "moderator"
+            "role": "user"
         },
         {
             "id": 12,
@@ -838,7 +838,7 @@
                 "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
                 "network": "Ethereum (ERC20)"
             },
-            "role": "moderator"
+            "role": "user"
         },
         {
             "id": 13,
@@ -908,7 +908,7 @@
                 "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
                 "network": "Ethereum (ERC20)"
             },
-            "role": "moderator"
+            "role": "user"
         },
         {
             "id": 14,
@@ -978,7 +978,7 @@
                 "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
                 "network": "Ethereum (ERC20)"
             },
-            "role": "moderator"
+            "role": "user"
         },
         {
             "id": 15,
@@ -1048,7 +1048,7 @@
                 "wallet": "0xb9fc2fe63b2a6c003f1c324c3bfa53259162181a",
                 "network": "Ethereum (ERC20)"
             },
-            "role": "moderator"
+            "role": "user"
         },
         {
             "id": 16,
