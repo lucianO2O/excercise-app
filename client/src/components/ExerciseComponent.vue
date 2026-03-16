@@ -12,6 +12,7 @@ const props = defineProps<{
 const exerciseStore = useExerciseStore()
 const userStore = useUsersStore()
 
+// look up user who creaetd exercise
 const exerciseUser = computed(() =>
   userStore.users.find(u => u.id === props.exercise.userId)
 )
