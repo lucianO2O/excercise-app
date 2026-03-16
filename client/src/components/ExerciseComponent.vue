@@ -14,8 +14,8 @@ const { user } = storeToRefs(userStore)
     <article class="media box" v-for="exercise in exerciseStore.exercise.filter(ex => ex.userId === user?.id)"
       :key="exercise.id">
       <figure class="media-left">
-        <p class="image is-64x64">
-          <img src="https://bulma.io/assets/images/placeholders/128x128.png" />
+        <p class="image is-128x128">
+          <img src="./images/chud-walker-logo.png"/>
         </p>
       </figure>
       <div class="media-content" >
@@ -27,7 +27,7 @@ const { user } = storeToRefs(userStore)
               <small>{{ exercise.date }}</small>
             </p>
 
-            <h4 class="title is-3">{{ exercise.title }} - {{ exercise.duration }} minutes</h4>
+            <h4 class="title is-3">{{ exercise.title }} - {{ exercise.exerciseType }} - {{ exercise.duration }} minutes</h4>
 
             <p>{{ exercise.description }}</p>
 
