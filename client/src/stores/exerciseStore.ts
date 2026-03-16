@@ -20,5 +20,23 @@ export const useExerciseStore = defineStore('exercise', () => {
     exercise.value = exercise.value.filter(ex => ex.id !== exerciseId)
   }
 
-  return { exercise, getExercise, addExercise, removeExercise }
+  const sumStats = (exercises: Exercise[]) => ({
+    distance: exercises.reduce((sum, ex) => sum + Number(ex.distance ?? 0), 0),
+    duration: exercises.reduce((sum, ex) => sum + Number(ex.duration), 0),
+    calories: exercises.reduce((sum, ex) => sum + Number(ex.calories), 0),
+    pace: exercises.reduce((sum, ex) => sum + Number(ex.pace ?? 0), 0)
+    / exercises.length
+  })
+
+  const getStats = (userId: number, from?: string, to?: string) => {
+    const filtered = exercise.value.filter(ex => {
+      if (ex.userId !== userId) return false
+      if (from && ex.date < from) return false
+      if (to && ex.date > to) return false
+      return true
+    })
+    return sumStats(filtered)
+  }
+
+  return { exercise, getExercise, addExercise, removeExercise, getStats }
 })
