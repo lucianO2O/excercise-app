@@ -20,6 +20,7 @@ const form = ref<Omit<Exercise, 'id'>>({
   distance: '',
   picture: '',
   location: '',
+  description: '',
   userId: usersStore.user!.id
 })
 
@@ -108,6 +109,13 @@ const addExercise = () => {
           <input class="input" type="text" placeholder="Calories burned" v-model="form.calories" />
           <span class="icon is-small is-left">
             <i class="fas fa-fire"></i>
+          </span>
+        </p>
+        <br>
+        <p class="control has-icons-left">
+          <input class="input" type="text" placeholder="Description" v-model="form.description" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-marker"></i>
           </span>
         </p>
 

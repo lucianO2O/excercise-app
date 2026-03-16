@@ -17,6 +17,7 @@ export type Exercise = {
   date: string
   duration: string
   calories: string
+  description: string
   pace?: string
   distance?: string
   userId: User['id']
