@@ -15,11 +15,11 @@ export type Exercise = {
   title: string
   exerciseType: ExerciseType
   date: string
-  duration: string
-  calories: string
+  duration: number
+  calories: number
   description: string
-  pace?: string
-  distance?: string
+  pace?: number
+  distance?: number
   userId: User['id']
   picture?: string
   location?: string

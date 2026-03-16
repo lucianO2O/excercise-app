@@ -14,10 +14,10 @@ const form = ref<Omit<Exercise, 'id'>>({
   title: '',
   exerciseType: '' as ExerciseType,
   date: '',
-  duration: '',
-  calories: '',
-  pace: '',
-  distance: '',
+  duration: 0,
+  calories: 0,
+  pace: undefined,
+  distance: undefined,
   picture: '',
   location: '',
   description: '',
@@ -30,7 +30,11 @@ const addExercise = () => {
 
   exerciseStore.addExercise({
     ...form.value,
-    id: Date.now()
+    id: Date.now(),
+    duration: Number(form.value.duration),
+    calories: Number(form.value.calories),
+    pace: form.value.pace ? Number(form.value.pace) : undefined,
+    distance: form.value.distance ? Number(form.value.distance) : undefined,
   })
   emit('close')
 }
