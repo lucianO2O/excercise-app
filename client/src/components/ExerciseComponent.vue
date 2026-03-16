@@ -3,15 +3,15 @@ import { useExerciseStore } from '@/stores/exerciseStore';
 import { useUsersStore } from '@/stores/users';
 import { storeToRefs } from 'pinia';
 
-const exercises = useExerciseStore()
-const users = useUsersStore()
-const { user } = storeToRefs(users)
+const exerciseStore = useExerciseStore()
+const userStore = useUsersStore()
+const { user } = storeToRefs(userStore)
 
 </script>
 
 <template>
   <div v-if="user">
-    <article class="media box" v-for="exercise in exercises.exercise.filter(ex => ex.userId === user?.id)"
+    <article class="media box" v-for="exercise in exerciseStore.exercise.filter(ex => ex.userId === user?.id)"
       :key="exercise.id">
       <figure class="media-left">
         <p class="image is-64x64">
@@ -72,7 +72,7 @@ const { user } = storeToRefs(users)
       </div>
 
       <div class="media-right">
-        <button class="delete" @click="exercises.removeExercise(exercise.id)"></button>
+        <button class="delete" @click="exerciseStore.removeExercise(exercise.id)"></button>
       </div>
 
     </article>
