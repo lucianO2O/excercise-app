@@ -67,7 +67,7 @@ const addExercise = () => {
             <option value="none">None</option>
           </select>
           <span class="icon is-small is-left">
-            <i class="fas fa-edit"></i>
+            <i class="fas fa-chart-line"></i>
           </span>
         </div>
 
@@ -123,10 +123,10 @@ const addExercise = () => {
 
       <footer class="modal-card-foot">
         <div class="buttons">
-          <button class="button is-success" @click="addExercise">
+          <button class="button is-success is-outlined" @click="addExercise">
             Save changes
           </button>
-          <button class="button" @click="emit('close')">
+          <button class="button is-danger is-outlined" @click="emit('close')">
             Cancel
           </button>
 
