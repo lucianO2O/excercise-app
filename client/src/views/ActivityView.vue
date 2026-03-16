@@ -1,7 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import ExerciseForm from '@/components/ExerciseForm.vue'
 import ExerciseComponent from '@/components/ExerciseComponent.vue';
+import { useExerciseStore } from '@/stores/exerciseStore';
+import { useUsersStore } from '@/stores/users';
+import { storeToRefs } from 'pinia';
+import { ref } from 'vue'
+
+const userStore = useUsersStore()
+const { user } = storeToRefs(userStore)
+
+const exerciseStore = useExerciseStore()
 
 const show = ref(false)
 </script>
@@ -23,7 +31,8 @@ const show = ref(false)
             <div class="columns">
               <div class="column">
                 <br>
-                <ExerciseComponent :show="show"/>
+                <ExerciseComponent v-for="exercise in exerciseStore.exercise.filter(ex => ex.userId === user?.id)"
+                  :key="exercise.id" :exercise="exercise" :showDelete="true"/>
               </div>
             </div>
           </div>
