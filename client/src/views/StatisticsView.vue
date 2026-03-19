@@ -24,68 +24,68 @@ const allTimeStats = computed(() => exerciseStore.getStats(user.value!.id))
     <hr>
 
     <div class="columns">
-      <div class="column box has-text-centered m-3">
+      <div class="column box has-text-centered m-3 has-background-dark">
         <h1 class="title is-5">Today</h1>
         <div class="columns is-multiline">
           <div class="column is-half">
             <p class="heading">Distance</p>
-            <p class="title is-4">{{ todayStats.distance }} mi</p>
+            <p class="title is-4 has-text-success">{{ todayStats.distance }} mi</p>
           </div>
           <div class="column is-half">
             <p class="heading">Duration</p>
-            <p class="title is-4">{{ todayStats.duration }} min</p>
+            <p class="title is-4 has-text-success">{{ todayStats.duration }} min</p>
           </div>
           <div class="column is-half">
             <p class="heading">Avg Pace</p>
-            <p class="title is-4">{{ todayStats.pace.toFixed(1) }} m/hr</p>
+            <p class="title is-4 has-text-success">{{ todayStats.pace.toFixed(1) }} m/hr</p>
           </div>
           <div class="column is-half">
             <p class="heading">Calories</p>
-            <p class="title is-4">{{ todayStats.calories }}</p>
+            <p class="title is-4 has-text-success">{{ todayStats.calories }}</p>
           </div>
         </div>
       </div>
 
-      <div class="column box has-text-centered m-3">
+      <div class="column box has-text-centered m-3 has-background-dark">
         <h1 class="title is-5">Last 7 Days</h1>
         <div class="columns is-multiline">
           <div class="column is-half">
             <p class="heading">Distance</p>
-            <p class="title is-4">{{ thisWeekStats.distance }} mi</p>
+            <p class="title is-4 has-text-success">{{ thisWeekStats.distance }} mi</p>
           </div>
           <div class="column is-half">
             <p class="heading">Duration</p>
-            <p class="title is-4">{{ thisWeekStats.duration }} min</p>
+            <p class="title is-4 has-text-success">{{ thisWeekStats.duration }} min</p>
           </div>
           <div class="column is-half">
             <p class="heading">Avg Pace</p>
-            <p class="title is-4">{{ thisWeekStats.pace.toFixed(1) }} m/hr</p>
+            <p class="title is-4 has-text-success">{{ thisWeekStats.pace.toFixed(1) }} m/hr</p>
           </div>
           <div class="column is-half">
             <p class="heading">Calories</p>
-            <p class="title is-4">{{ thisWeekStats.calories }}</p>
+            <p class="title is-4 has-text-success">{{ thisWeekStats.calories }}</p>
           </div>
         </div>
       </div>
 
-      <div class="column box has-text-centered m-3">
+      <div class="column box has-text-centered m-3 has-background-dark">
         <h1 class="title is-5">All Time</h1>
         <div class="columns is-multiline">
           <div class="column is-half">
             <p class="heading">Distance</p>
-            <p class="title is-4">{{ allTimeStats.distance }} mi</p>
+            <p class="title is-4 has-text-success">{{ allTimeStats.distance }} mi</p>
           </div>
           <div class="column is-half">
             <p class="heading">Duration</p>
-            <p class="title is-4">{{ allTimeStats.duration }} min</p>
+            <p class="title is-4 has-text-success">{{ allTimeStats.duration }} min</p>
           </div>
           <div class="column is-half">
             <p class="heading">Avg Pace</p>
-            <p class="title is-4">{{ allTimeStats.pace.toFixed(1) }} m/hr</p>
+            <p class="title is-4 has-text-success">{{ allTimeStats.pace.toFixed(1) }} m/hr</p>
           </div>
           <div class="column is-half">
             <p class="heading">Calories</p>
-            <p class="title is-4">{{ allTimeStats.calories }}</p>
+            <p class="title is-4 has-text-success">{{ allTimeStats.calories }}</p>
           </div>
         </div>
       </div>

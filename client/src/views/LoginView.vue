@@ -22,16 +22,14 @@ const handleLogin = () => {
 <template>
   <main>
     <div class="columns is-centered">
-      <div class="column container box is-three-quarters mt-6 p-5">
+      <div class="column container box is-three-quarters  mt-6 p-5">
 
         <h1 class="title is-2">Log In</h1>
-
         <br>
-
         <p v-if="error" class="help is-danger mb-4">{{ error }}</p>
-        <div class="field pb-3">
+        <div class="field pb-3 ">
           <p class="control has-icons-left has-icons-right">
-            <input class="input" type="text" placeholder="Email/Username" v-model="identifier"/>
+            <input class="input " type="text" placeholder="Email/Username" v-model="identifier"/>
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>

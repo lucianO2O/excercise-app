@@ -8,7 +8,8 @@ const { admin } = storeToRefs(userStore)
 
 <template>
   <div v-if="admin">
-    <table class="table container">
+    <br>
+    <table class="table container                                                        has-background-dark">
       <thead>
         <tr>
           <th><abbr title="User ID">UID</abbr></th>
@@ -41,6 +42,7 @@ const { admin } = storeToRefs(userStore)
         </tr>
       </tbody>
     </table>
+    <br>
   </div>
 </template>
 

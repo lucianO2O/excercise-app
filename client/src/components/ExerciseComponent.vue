@@ -19,9 +19,9 @@ const exerciseUser = computed(() =>
 </script>
 
 <template>
-  <article class="media box">
+  <article class="media box has-background-dark">
     <figure class="media-left">
-      <p class="image is-128x128">
+      <p class="image is-96x96">
         <img src="./images/chud-walker-logo.png" />
       </p>
     </figure>
@@ -39,18 +39,18 @@ const exerciseUser = computed(() =>
 
           <p>{{ exercise.description }}</p>
 
-          <h4 class="title is-3">{{ exercise.calories }}</h4>
+          <h4 class="title is-3 has-text-success">{{ exercise.calories }}</h4>
           <h6 class="subtitle is-7">Calories Burned</h6>
 
           <div
             v-if="exercise.exerciseType === 'running' || exercise.exerciseType === 'swimming' || exercise.exerciseType === 'cycling'">
             <div class="columns">
               <div class="column">
-                <h4 class="title is-3">{{ exercise.pace }} m/hr</h4>
+                <h4 class="title is-3 has-text-success">{{ exercise.pace }} m/hr</h4>
                 <h6 class="subtitle is-7">Pace</h6>
               </div>
               <div class="column">
-                <h4 class="title is-3">{{ exercise.distance }} miles</h4>
+                <h4 class="title is-3 has-text-success">{{ exercise.distance }} miles</h4>
                 <h6 class="subtitle is-7">Distance</h6>
               </div>
             </div>
@@ -87,4 +87,5 @@ const exerciseUser = computed(() =>
   </article>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
