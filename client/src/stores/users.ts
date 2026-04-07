@@ -1,11 +1,17 @@
-import data from '../data/users.json'
 import { defineStore } from 'pinia'
 import type { User } from '@/types'
+import { api } from '../services/myFetch'
 import { computed, ref } from 'vue'
 
 export const useUsersStore = defineStore('users', () => {
-  const users = ref(data.users)
+  const users = ref<User[]>([])
   const user = ref<User | null>(null)
+
+  api<{ data: User[] }>('users').then((response) => {
+    users.value = response.data
+  }).catch((error) => {
+    console.error('Failed to load users', error)
+  })
 
   const admin = computed(() => user.value?.role === 'admin' ? user.value : null)
 

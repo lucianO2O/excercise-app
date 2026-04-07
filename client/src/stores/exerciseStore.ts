@@ -1,8 +1,14 @@
 import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
 import type { Exercise } from '@/types'
+import { api } from '../services/myFetch'
 
 export const useExerciseStore = defineStore('exercise', () => {
+  api<Exercise[]>('exercises').then((data) => {
+    console.log('Fetched exercises:', data)
+    exercise.value = data
+  })
+  
   const stored = localStorage.getItem('exercises')
   const exercise = ref<Exercise[]>(stored ? JSON.parse(stored) : [])
 

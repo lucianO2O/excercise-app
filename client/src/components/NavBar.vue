@@ -63,7 +63,7 @@ const isActive = ref(false);
       </div>
 
       <div class="navbar-end">
-        <RouterLink class="navbar-item px-4" to="/login" v-show="user || admin" @click="auth.logout">
+        <RouterLink class="navbar-item has-text-danger px-4" to="/login" v-show="user || admin" @click="auth.logout">
           Log Out
         </RouterLink>
 
