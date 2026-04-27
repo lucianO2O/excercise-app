@@ -6,6 +6,10 @@ import RegisterView from '../views/RegisterView.vue'
 import StatisticsView from '@/views/StatisticsView.vue'
 import UsersTab from '@/views/UsersTab.vue'
 import FriendsActivity from '@/views/FriendsActivity.vue'
+import { useUsersStore } from '@/stores/users'
+
+const guestOnly = ['/', '/login', '/register']
+const authRequired = ['/activity', '/statistics', '/users', '/friends']
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -46,6 +50,18 @@ const router = createRouter({
       component: FriendsActivity
     }
   ]
+})
+
+router.beforeEach((to) => {
+  const usersStore = useUsersStore()
+  const loggedIn = usersStore.user !== null
+
+  if (loggedIn && guestOnly.includes(to.path)) {
+    return { name: 'activity' }
+  }
+  if (!loggedIn && authRequired.includes(to.path)) {
+    return { name: 'login' }
+  }
 })
 
 export default router

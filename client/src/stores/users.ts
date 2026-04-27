@@ -1,14 +1,26 @@
 import { defineStore } from 'pinia'
 import type { User } from '@/types'
 import { api, apiPost, apiPatch, apiDelete } from '../services/myFetch'
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
+
+const USER_STORAGE_KEY = 'auth_user'
 
 type ListEnvelope<T> = { data: T[]; isSuccess: boolean; total: number }
 type Envelope<T> = { data: T; isSuccess: boolean; message?: string }
 
 export const useUsersStore = defineStore('users', () => {
   const users = ref<User[]>([])
-  const user = ref<User | null>(null)
+
+  const storedUser = localStorage.getItem(USER_STORAGE_KEY)
+  const user = ref<User | null>(storedUser ? JSON.parse(storedUser) : null)
+
+  watch(user, (val) => {
+    if (val) {
+      localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(val))
+    } else {
+      localStorage.removeItem(USER_STORAGE_KEY)
+    }
+  })
 
   const loadAll = async () => {
     try {
