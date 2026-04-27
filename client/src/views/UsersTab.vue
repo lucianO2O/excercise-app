@@ -15,19 +15,16 @@ const startEdit = (user: User) => {
   editedUser.value = { ...user }
 }
 
-const saveEdit = () => {
+const saveEdit = async () => {
   if (editedUser.value) {
-    const index = userStore.users.findIndex(u => u.id === editedUser.value!.id)
-    if (index !== -1) {
-      userStore.users[index] = editedUser.value
-    }
+    await userStore.updateUser(editedUser.value.id, editedUser.value)
   }
   editingId.value = null
   editedUser.value = null
 }
 
-const deleteUser = (id: number) => {
-  userStore.users = userStore.users.filter(u => u.id !== id)
+const deleteUser = async (id: number) => {
+  await userStore.removeUser(id)
 }
 
 const cancelEdit = () => {

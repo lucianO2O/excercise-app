@@ -81,6 +81,27 @@ app.get("/", async (req, res, next) => {
             next(err)
         }
     })
+    .post("/register", async (req, res, next) => {
+        try {
+            const { username, email, password, firstName, lastName } = req.body
+            const newUser = await create({
+                username,
+                email,
+                password,
+                firstName: firstName || "",
+                lastName: lastName || "",
+                phone: "",
+                role: "user",
+            } as User)
+            const response: DataEnvelope<User> = {
+                data: sanitize(newUser),
+                isSuccess: true,
+            }
+            res.send(response)
+        } catch (err) {
+            next(err)
+        }
+    })
     .post("/", async (req, res, next) => {
         try {
             const newUser = await create(req.body)

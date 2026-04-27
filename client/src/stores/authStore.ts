@@ -24,8 +24,10 @@ export const useAuthStore = defineStore('auth', () => {
     username: string,
     email: string,
     password: string,
+    firstName: string,
+    lastName: string,
   ): Promise<boolean> => {
-    const result = await usersStore.register(username, email, password)
+    const result = await usersStore.register(username, email, password, firstName, lastName)
     if (result) {
       usersStore.user = result
       return true

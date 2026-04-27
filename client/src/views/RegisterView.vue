@@ -7,6 +7,8 @@ const auth = useAuthStore()
 const router = useRouter()
 
 const username = ref('')
+const firstName = ref('')
+const lastName = ref('')
 const email = ref('')
 const password = ref('')
 const confirmPassword = ref('')
@@ -17,7 +19,7 @@ const handleRegister = async () => {
     error.value = 'Passwords do not match'
     return
   }
-  if (await auth.register(username.value, email.value, password.value)) {
+  if (await auth.register(username.value, email.value, password.value, firstName.value, lastName.value)) {
     router.push('/activity')
   } else {
     error.value = 'Registration failed'
@@ -39,6 +41,24 @@ const handleRegister = async () => {
             <input class="input" type="text" placeholder="Username" v-model="username"/>
             <span class="icon is-small is-left">
               <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field pb-3">
+          <p class="control has-icons-left">
+            <input class="input" type="text" placeholder="First Name" v-model="firstName"/>
+            <span class="icon is-small is-left">
+              <i class="fas fa-id-card"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field pb-3">
+          <p class="control has-icons-left">
+            <input class="input" type="text" placeholder="Last Name" v-model="lastName"/>
+            <span class="icon is-small is-left">
+              <i class="fas fa-id-card"></i>
             </span>
           </p>
         </div>
