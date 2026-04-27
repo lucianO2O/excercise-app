@@ -1,28 +1,35 @@
+import { config } from "dotenv"
+config()
+
 import express from "express"
 import usersController from "./controllers/users"
+import exercisesController from "./controllers/exercises"
 import { DataEnvelope } from "./types"
 
-const PORT = 3000
-const SERVER = "localhost"
+const PORT = process.env.PORT ?? 3000
+const SERVER = process.env.SERVER ?? "localhost"
+const STATIC_DIR = process.env.STATIC_DIR ?? "client/dist"
 
 const app = express()
 
 ///////// Middleware
 app.use((_req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*") // Allow requests from any origin
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE") // Allow specific HTTP methods
-    res.setHeader("Access-Control-Allow-Headers", "*") // Allow specific headers
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE, OPTIONS")
+    res.setHeader("Access-Control-Allow-Headers", "*")
     next()
-}).use(express.json()) // Middleware to parse JSON request bodies
+}).use(express.json())
 
 ///////// Routes
-app.get("/", (_req, res) => {
-    res.send("Hello World!")
-})
+app.use(express.static(STATIC_DIR))
+    .get("/", (_req, res) => {
+        res.send("Exercise app server is running.")
+    })
     .get("/suny", (_req, res) => {
         res.send("The best plan of my life!")
     })
     .use("/api/v1/users", usersController)
+    .use("/api/v1/exercises", exercisesController)
 
 //////// Error handling
 app.use(
@@ -40,7 +47,7 @@ app.use(
             message: err.message ?? "An error occurred",
         }
 
-        res.status((err as any).status ?? 500).send(response)
+        res.status((err as { status?: number }).status ?? 500).send(response)
     },
 )
 
