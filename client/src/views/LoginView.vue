@@ -10,8 +10,8 @@ const identifier = ref('')
 const password = ref('')
 const error = ref('')
 
-const handleLogin = () => {
-  if (auth.login(identifier.value, password.value)) {
+const handleLogin = async () => {
+  if (await auth.login(identifier.value, password.value)) {
     router.push('/activity')
   } else {
     error.value = 'Invalid email/username or password'

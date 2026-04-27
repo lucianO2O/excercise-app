@@ -24,13 +24,12 @@ const form = ref<Omit<Exercise, 'id'>>({
   userId: usersStore.user!.id
 })
 
-const addExercise = () => {
+const addExercise = async () => {
   if (!usersStore.user) return
   if (!form.value.exerciseType) return
 
-  exerciseStore.addExercise({
+  await exerciseStore.addExercise({
     ...form.value,
-    id: Date.now(),
     duration: Number(form.value.duration),
     calories: Number(form.value.calories),
     pace: form.value.pace ? Number(form.value.pace) : undefined,
