@@ -71,7 +71,7 @@ const isActive = ref(false);
           Home
         </RouterLink>
 
-        <div class="navbar-item has-dropdown is-hoverable">
+        <div v-if="!user" class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
             Registration
           </a>

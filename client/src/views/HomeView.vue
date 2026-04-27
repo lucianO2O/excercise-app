@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+import { useUsersStore } from '@/stores/users'
+
+const router = useRouter()
+const usersStore = useUsersStore()
+
+if (usersStore.user) {
+  router.replace('/activity')
+}
 </script>
 
 <template>

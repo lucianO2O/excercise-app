@@ -8,7 +8,7 @@ import UsersTab from '@/views/UsersTab.vue'
 import FriendsActivity from '@/views/FriendsActivity.vue'
 import { useUsersStore } from '@/stores/users'
 
-const guestOnly = ['/', '/login', '/register']
+const guestOnly = ['/login', '/register']
 const authRequired = ['/activity', '/statistics', '/users', '/friends']
 
 const router = createRouter({
