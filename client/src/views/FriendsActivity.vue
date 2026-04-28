@@ -11,13 +11,14 @@ const { user } = storeToRefs(userStore)
 </script>
 
 <template>
+  <main class="has-background-link-dark">
   <div v-if="user">
     <div class="columns">
       <div class="column container is-centered has-text-centered mt-4 p-5">
-        <h1 class="title is-2">Friend's Activity</h1>
-        <p class="subtitle is-5">Find your activity and friend's activity here.</p>
+        <h1 class="title is-1 has-text-warning-light">Friend's Activity</h1>
+        <p class="subtitle is-5 has-text-warning-light">Find your activity and friend's activity here.</p>
 
-        <hr>
+        <hr class="has-background-warning-40" />
 
         <div class="columns">
           <div class="column container is-three-quarters">
@@ -29,6 +30,8 @@ const { user } = storeToRefs(userStore)
       </div>
     </div>
   </div>
+  </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

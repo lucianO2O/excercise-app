@@ -15,17 +15,17 @@ const show = ref(false)
 </script>
 
 <template>
-  <main >
+  <main class="has-background-link-dark">
     <div class="columns">
-      <div class="column container is-centered has-text-centered mt-4 p-5">
-        <h1 class="title is-2">Your Activity</h1>
-        <p class="subtitle is-5">Find your activity here.</p>
+      <div class="column container is-centered has-text-centered  mt-4 p-5">
+        <h1 class="title is-1 has-text-warning-light">Your Activity</h1>
+        <p class="subtitle is-5 has-text-warning-light">Find your activity here.</p>
 
-        <hr>
+        <hr class="has-background-warning-40"/>
 
         <div class="columns">
           <div class="column container is-three-quarters">
-            <button class="button container has-background-warning-40 has-text-link-dark is-medium is-rounded" @click="show = true">
+            <button class="button container has-background-warning-40 has-text-warning-light is-medium is-rounded" @click="show = true">
               Add Exercise
             </button>
             <div class="columns">
@@ -45,4 +45,5 @@ const show = ref(false)
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

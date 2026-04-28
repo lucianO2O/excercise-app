@@ -18,80 +18,85 @@ const allTimeStats = computed(() => exerciseStore.getStats(user.value!.id))
 </script>
 
 <template>
-  <div class="container mt-4 p-5" v-if="user">
-    <h1 class="title is-2 has-text-centered">Statistics</h1>
-    <p class="subtitle has-text-centered">Welcome, {{ user.firstName }}</p>
-    <hr>
+  <main class="has-background-link-dark">
+    <div class="container mt-4 p-5" v-if="user">
+      <h1 class="title is-1 has-text-centered has-text-warning-light">Statistics</h1>
+      <p class="subtitle has-text-centered has-text-warning-light">Welcome, {{ user.firstName }}</p>
+      <hr class="has-background-warning-40" />
 
-    <div class="columns">
-      <div class="column box has-text-centered m-3 has-background-dark">
-        <h1 class="title is-5">Today</h1>
-        <div class="columns is-multiline">
-          <div class="column is-half">
-            <p class="heading">Distance</p>
-            <p class="title is-4 has-text-success">{{ todayStats.distance }} mi</p>
-          </div>
-          <div class="column is-half">
-            <p class="heading">Duration</p>
-            <p class="title is-4 has-text-success">{{ todayStats.duration }} min</p>
-          </div>
-          <div class="column is-half">
-            <p class="heading">Avg Pace</p>
-            <p class="title is-4 has-text-success">{{ todayStats.pace.toFixed(1) }} m/hr</p>
-          </div>
-          <div class="column is-half">
-            <p class="heading">Calories</p>
-            <p class="title is-4 has-text-success">{{ todayStats.calories }}</p>
+      <div class="columns">
+        <div class="column box has-text-centered m-3 has-background-dark">
+          <h1 class="title is-5">Today</h1>
+          <div class="columns is-multiline">
+            <div class="column is-half">
+              <p class="heading">Distance</p>
+              <p class="title is-4 has-text-success">{{ todayStats.distance }} mi</p>
+            </div>
+            <div class="column is-half">
+              <p class="heading">Duration</p>
+              <p class="title is-4 has-text-success">{{ todayStats.duration }} min</p>
+            </div>
+            <div class="column is-half">
+              <p class="heading">Avg Pace</p>
+              <p class="title is-4 has-text-success">{{ todayStats.pace.toFixed(1) }} m/hr</p>
+            </div>
+            <div class="column is-half">
+              <p class="heading">Calories</p>
+              <p class="title is-4 has-text-success">{{ todayStats.calories }}</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="column box has-text-centered m-3 has-background-dark">
-        <h1 class="title is-5">Last 7 Days</h1>
-        <div class="columns is-multiline">
-          <div class="column is-half">
-            <p class="heading">Distance</p>
-            <p class="title is-4 has-text-success">{{ thisWeekStats.distance }} mi</p>
-          </div>
-          <div class="column is-half">
-            <p class="heading">Duration</p>
-            <p class="title is-4 has-text-success">{{ thisWeekStats.duration }} min</p>
-          </div>
-          <div class="column is-half">
-            <p class="heading">Avg Pace</p>
-            <p class="title is-4 has-text-success">{{ thisWeekStats.pace.toFixed(1) }} m/hr</p>
-          </div>
-          <div class="column is-half">
-            <p class="heading">Calories</p>
-            <p class="title is-4 has-text-success">{{ thisWeekStats.calories }}</p>
+        <div class="column box has-text-centered m-3 has-background-dark">
+          <h1 class="title is-5">Last 7 Days</h1>
+          <div class="columns is-multiline">
+            <div class="column is-half">
+              <p class="heading">Distance</p>
+              <p class="title is-4 has-text-success">{{ thisWeekStats.distance }} mi</p>
+            </div>
+            <div class="column is-half">
+              <p class="heading">Duration</p>
+              <p class="title is-4 has-text-success">{{ thisWeekStats.duration }} min</p>
+            </div>
+            <div class="column is-half">
+              <p class="heading">Avg Pace</p>
+              <p class="title is-4 has-text-success">{{ thisWeekStats.pace.toFixed(1) }} m/hr</p>
+            </div>
+            <div class="column is-half">
+              <p class="heading">Calories</p>
+              <p class="title is-4 has-text-success">{{ thisWeekStats.calories }}</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="column box has-text-centered m-3 has-background-dark">
-        <h1 class="title is-5">All Time</h1>
-        <div class="columns is-multiline">
-          <div class="column is-half">
-            <p class="heading">Distance</p>
-            <p class="title is-4 has-text-success">{{ allTimeStats.distance }} mi</p>
-          </div>
-          <div class="column is-half">
-            <p class="heading">Duration</p>
-            <p class="title is-4 has-text-success">{{ allTimeStats.duration }} min</p>
-          </div>
-          <div class="column is-half">
-            <p class="heading">Avg Pace</p>
-            <p class="title is-4 has-text-success">{{ allTimeStats.pace.toFixed(1) }} m/hr</p>
-          </div>
-          <div class="column is-half">
-            <p class="heading">Calories</p>
-            <p class="title is-4 has-text-success">{{ allTimeStats.calories }}</p>
+        <div class="column box has-text-centered m-3 has-background-dark">
+          <h1 class="title is-5">All Time</h1>
+          <div class="columns is-multiline">
+            <div class="column is-half">
+              <p class="heading">Distance</p>
+              <p class="title is-4 has-text-success">{{ allTimeStats.distance }} mi</p>
+            </div>
+            <div class="column is-half">
+              <p class="heading">Duration</p>
+              <p class="title is-4 has-text-success">{{ allTimeStats.duration }} min</p>
+            </div>
+            <div class="column is-half">
+              <p class="heading">Avg Pace</p>
+              <p class="title is-4 has-text-success">{{ allTimeStats.pace.toFixed(1) }} m/hr</p>
+            </div>
+            <div class="column is-half">
+              <p class="heading">Calories</p>
+              <p class="title is-4 has-text-success">{{ allTimeStats.calories }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div v-else class="has-text-centered mt-6">
-    <p>Please log in to view your statistics.</p>
-  </div>
+    <div v-else class="has-text-centered mt-6">
+      <p>Please log in to view your statistics.</p>
+    </div>
+  </main>
 </template>
+
+<style scoped>
+</style>

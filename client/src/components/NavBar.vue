@@ -64,7 +64,7 @@ const isActive = ref(false);
       </div>
 
       <div class="navbar-end">
-        <RouterLink class="navbar-item has-text-danger has-text-warning-light px-4" to="/login" v-show="user || admin" @click="auth.logout">
+        <RouterLink class="navbar-item has-text-warning-light px-4" to="/login" v-show="user || admin" @click="auth.logout">
           Log Out
         </RouterLink>
 
@@ -73,7 +73,7 @@ const isActive = ref(false);
         </RouterLink>
 
         <div v-if="!user" class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
+          <a class="navbar-link has-text-warning-light">
             Registration
           </a>
 
@@ -93,7 +93,7 @@ const isActive = ref(false);
 
 <style scoped>
 .navbar-brand .navbar-item:first-child {
-  padding: 0.4rem 0.75rem;
+  padding: 0.4rem 0.25rem 0.4rem 0.5rem;
 }
 .navbar-brand .navbar-item:first-child img {
   max-height: 100%;
