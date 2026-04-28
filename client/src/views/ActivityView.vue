@@ -25,7 +25,7 @@ const show = ref(false)
 
         <div class="columns">
           <div class="column container is-three-quarters">
-            <button class="button container has-background-link has-text-link-light is-medium is-rounded" @click="show = true">
+            <button class="button container has-background-warning-40 has-text-link-dark is-medium is-rounded" @click="show = true">
               Add Exercise
             </button>
             <div class="columns">

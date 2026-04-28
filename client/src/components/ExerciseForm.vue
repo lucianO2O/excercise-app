@@ -40,7 +40,7 @@ const addExercise = async () => {
 </script>
 
 <template>
-  <div class="modal" :class="{ 'is-active': props.show }">
+  <div class="modal has-background-info-40" :class="{ 'is-active': props.show }">
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">

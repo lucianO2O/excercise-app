@@ -36,7 +36,7 @@ const cancelEdit = () => {
 <template>
   <div v-if="admin">
     <br>
-    <table class="table container                                                        has-background-dark">
+    <table class="table container has-background-dark">
       <thead>
         <tr>
           <th><abbr title="User ID">UID</abbr></th>
