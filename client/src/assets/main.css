@@ -1,2 +1,6 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 @import 'bulma/css/bulma.css';
+
+*:not(.fas):not(.far):not(.fab):not(.fal):not(.fad):not(.fa) {
+  font-family: 'Times New Roman', Times, serif !important;
+}
