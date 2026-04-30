@@ -14,7 +14,7 @@ const isActive = ref(false);
 </script>
 
 <template>
-  <nav class="navbar has-background-info-20" role="navigation" aria-label="main navigation">
+  <nav class="navbar has-background-warning-30" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <RouterLink class="navbar-item " to="/">
         <img src="./images/chud-walker-logo.png" alt="Logo">
