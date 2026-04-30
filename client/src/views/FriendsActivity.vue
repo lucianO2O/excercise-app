@@ -34,4 +34,7 @@ const { user } = storeToRefs(userStore)
 </template>
 
 <style scoped>
+main {
+  min-height: 100vh;
+}
 </style>
