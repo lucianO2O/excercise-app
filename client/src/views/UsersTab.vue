@@ -34,7 +34,7 @@ const cancelEdit = () => {
 </script>
 
 <template>
-  <main class="has-background-link-dark">
+  <main class="has-background-info-10">
   <div v-if="admin">
     <br>
     <table class="table container has-background-dark">

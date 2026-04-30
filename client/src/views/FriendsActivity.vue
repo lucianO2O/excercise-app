@@ -11,7 +11,7 @@ const { user } = storeToRefs(userStore)
 </script>
 
 <template>
-  <main class="has-background-link-dark">
+  <main class="has-background-info-10">
     <div v-if="user">
       <div class="columns">
         <div class="column container is-centered has-text-centered mt-4 p-5">

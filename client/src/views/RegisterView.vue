@@ -28,7 +28,7 @@ const handleRegister = async () => {
 </script>
 
 <template>
-  <main class="has-background-link-10">
+  <main class="has-background-info-10">
     <section class="hero is-fullheight-with-navbar">
       <div class="hero-body">
         <div class="container has-text-centered">

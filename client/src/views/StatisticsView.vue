@@ -18,7 +18,7 @@ const allTimeStats = computed(() => exerciseStore.getStats(user.value!.id))
 </script>
 
 <template>
-  <main class="has-background-link-dark">
+  <main class="has-background-info-10">
     <div class="container p-5" v-if="user">
       <h1 class="title is-1 has-text-centered has-text-warning-light">Statistics</h1>
       <p class="subtitle has-text-centered has-text-warning-light">Welcome, {{ user.firstName }}</p>

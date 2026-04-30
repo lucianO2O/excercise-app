@@ -15,7 +15,7 @@ const show = ref(false)
 </script>
 
 <template>
-  <main class="has-background-link-dark">
+  <main class="has-background-info-10">
     <div class="columns">
       <div class="column container is-centered has-text-centered  mt-4 p-5">
         <h1 class="title is-1 has-text-warning-light">Your Activity</h1>
