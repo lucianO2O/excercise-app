@@ -8,7 +8,7 @@ const usersStore = useUsersStore()
 const exerciseStore = useExerciseStore()
 
 const props = defineProps<{ show: boolean }>()
-const emit = defineEmits<{ close: [] }>()
+const emit = defineEmits<{ close: []; added: [exercise: Exercise] }>()
 
 const form = ref<Omit<Exercise, 'id'>>({
   title: '',
@@ -28,13 +28,14 @@ const addExercise = async () => {
   if (!usersStore.user) return
   if (!form.value.exerciseType) return
 
-  await exerciseStore.addExercise({
+  const created = await exerciseStore.addExercise({
     ...form.value,
     duration: Number(form.value.duration),
     calories: Number(form.value.calories),
     pace: form.value.pace ? Number(form.value.pace) : undefined,
     distance: form.value.distance ? Number(form.value.distance) : undefined,
   })
+  if (created) emit('added', created)
   emit('close')
 }
 </script>

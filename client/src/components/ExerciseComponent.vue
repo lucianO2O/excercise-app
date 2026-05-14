@@ -9,6 +9,8 @@ const props = defineProps<{
   exercise: Exercise
 }>()
 
+const emit = defineEmits<{ removed: [id: number] }>()
+
 const exerciseStore = useExerciseStore()
 const userStore = useUsersStore()
 
@@ -16,10 +18,15 @@ const userStore = useUsersStore()
 const exerciseUser = computed(() =>
   userStore.users.find(u => u.id === props.exercise.userId)
 )
+
+const handleDelete = async () => {
+  await exerciseStore.removeExercise(props.exercise.id)
+  emit('removed', props.exercise.id)
+}
 </script>
 
 <template>
-  <article class="media box has-background-dark">
+  <article class="media box has-background-info-15">
     <figure class="media-left">
       <p class="image is-96x96">
         <img src="./images/chud-walker-logo.png" />
@@ -81,7 +88,7 @@ const exerciseUser = computed(() =>
     </div>
 
     <div class="media-right">
-      <button class="delete" v-if="props.showDelete" @click="exerciseStore.removeExercise(exercise.id)"></button>
+      <button class="delete" v-if="props.showDelete" @click="handleDelete"></button>
     </div>
 
   </article>

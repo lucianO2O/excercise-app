@@ -1,20 +1,39 @@
 <script setup lang="ts">
 import { useUsersStore } from '@/stores/users';
-import { useExerciseStore } from '@/stores/exerciseStore';
+import { useExerciseStore, type Stats } from '@/stores/exerciseStore';
 import { storeToRefs } from 'pinia';
-import { computed } from 'vue';
+import { ref, watch } from 'vue';
 
 const userStore = useUsersStore()
 const { user } = storeToRefs(userStore)
 const exerciseStore = useExerciseStore()
 
-
 const today = new Date().toISOString().split('T')[0]
 const weekStart = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0]
 
-const todayStats = computed(() => exerciseStore.getStats(user.value!.id, today, today))
-const thisWeekStats = computed(() => exerciseStore.getStats(user.value!.id, weekStart))
-const allTimeStats = computed(() => exerciseStore.getStats(user.value!.id))
+const emptyStats: Stats = { distance: 0, duration: 0, calories: 0, pace: 0, count: 0 }
+const todayStats = ref<Stats>(emptyStats)
+const thisWeekStats = ref<Stats>(emptyStats)
+const allTimeStats = ref<Stats>(emptyStats)
+
+const loadStats = async (uid: number) => {
+  const [today_, week_, all_] = await Promise.all([
+    exerciseStore.fetchStats(uid, today, today),
+    exerciseStore.fetchStats(uid, weekStart),
+    exerciseStore.fetchStats(uid),
+  ])
+  todayStats.value = today_
+  thisWeekStats.value = week_
+  allTimeStats.value = all_
+}
+
+watch(
+  () => user.value?.id,
+  (uid) => {
+    if (uid) loadStats(uid)
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
@@ -25,7 +44,7 @@ const allTimeStats = computed(() => exerciseStore.getStats(user.value!.id))
       <hr class="has-background-warning-40" />
 
       <div class="columns">
-        <div class="column box has-text-centered m-3 has-background-dark">
+        <div class="column box has-text-centered m-3 has-background-info-15">
           <h1 class="title is-5">Today</h1>
           <div class="columns is-multiline">
             <div class="column is-half">
@@ -47,7 +66,7 @@ const allTimeStats = computed(() => exerciseStore.getStats(user.value!.id))
           </div>
         </div>
 
-        <div class="column box has-text-centered m-3 has-background-dark">
+        <div class="column box has-text-centered m-3 has-background-info-15">
           <h1 class="title is-5">Last 7 Days</h1>
           <div class="columns is-multiline">
             <div class="column is-half">
@@ -69,7 +88,7 @@ const allTimeStats = computed(() => exerciseStore.getStats(user.value!.id))
           </div>
         </div>
 
-        <div class="column box has-text-centered m-3 has-background-dark">
+        <div class="column box has-text-centered m-3 has-background-info-15">
           <h1 class="title is-5">All Time</h1>
           <div class="columns is-multiline">
             <div class="column is-half">

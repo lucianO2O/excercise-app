@@ -46,8 +46,8 @@ export async function getAll(params: ExerciseQuery) {
         query = query.order("date", { ascending: false })
     }
 
-    const page = params?.page || 1
-    const pageSize = params?.pageSize || 100
+    const page = Number(params?.page) || 1
+    const pageSize = Number(params?.pageSize) || 100
     const start = (page - 1) * pageSize
     query = query.range(start, start + pageSize - 1)
 

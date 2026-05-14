@@ -37,7 +37,7 @@ const cancelEdit = () => {
   <main class="has-background-info-10">
   <div v-if="admin">
     <br>
-    <table class="table container has-background-dark">
+    <table class="table container has-background-info-15 is-striped is-hoverable">
       <thead>
         <tr>
           <th><abbr title="User ID">UID</abbr></th>

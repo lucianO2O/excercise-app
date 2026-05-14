@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { Exercise } from '@/types'
 import { api, apiPost, apiDelete } from '../services/myFetch'
@@ -6,28 +6,47 @@ import { api, apiPost, apiDelete } from '../services/myFetch'
 type ListEnvelope<T> = { data: T[]; isSuccess: boolean; total: number }
 type Envelope<T> = { data: T; isSuccess: boolean; message?: string }
 
+export type Stats = {
+  distance: number
+  duration: number
+  calories: number
+  pace: number
+  count: number
+}
+
+export type Page = { list: Exercise[]; total: number }
+
 export const useExerciseStore = defineStore('exercise', () => {
+
   const exercise = ref<Exercise[]>([])
 
-  const loadAll = async () => {
-    try {
-      const res = await api<ListEnvelope<Exercise>>('exercises')
-      exercise.value = res.data
-    } catch (err) {
-      console.error('Failed to load exercises', err)
-    }
+  const fetchUserPage = async (
+    userId: number,
+    page: number,
+    pageSize: number,
+  ): Promise<Page> => {
+    const res = await api<ListEnvelope<Exercise>>(
+      `exercises/user/${userId}?page=${page}&pageSize=${pageSize}`,
+    )
+    return { list: res.data, total: res.total }
   }
 
-  // Kick off the initial fetch when the store is first used.
-  loadAll()
-
-  const getExercise = computed(() => exercise.value)
+  const fetchFriendsPage = async (
+    userId: number,
+    page: number,
+    pageSize: number,
+  ): Promise<Page> => {
+    const res = await api<ListEnvelope<Exercise>>(
+      `exercises/friends/${userId}?page=${page}&pageSize=${pageSize}`,
+    )
+    return { list: res.data, total: res.total }
+  }
 
   const addExercise = async (newExercise: Omit<Exercise, 'id'>) => {
     try {
       const res = await apiPost<Envelope<Exercise>>('exercises', newExercise)
       if (res.isSuccess) {
-        exercise.value.push(res.data)
+        exercise.value.unshift(res.data)
       }
       return res.data
     } catch (err) {
@@ -46,33 +65,26 @@ export const useExerciseStore = defineStore('exercise', () => {
     }
   }
 
-  const sumStats = (exercises: Exercise[]) => ({
-    distance: exercises.reduce((sum, ex) => sum + Number(ex.distance ?? 0), 0),
-    duration: exercises.reduce((sum, ex) => sum + Number(ex.duration), 0),
-    calories: exercises.reduce((sum, ex) => sum + Number(ex.calories), 0),
-    pace:
-      exercises.length === 0
-        ? 0
-        : exercises.reduce((sum, ex) => sum + Number(ex.pace ?? 0), 0) /
-          exercises.length,
-  })
-
-  const getStats = (userId: number, from?: string, to?: string) => {
-    const filtered = exercise.value.filter((ex) => {
-      if (ex.userId !== userId) return false
-      if (from && ex.date < from) return false
-      if (to && ex.date > to) return false
-      return true
-    })
-    return sumStats(filtered)
+  // stats now come from the server
+  const fetchStats = async (
+    userId: number,
+    from?: string,
+    to?: string,
+  ): Promise<Stats> => {
+    const qs = new URLSearchParams()
+    if (from) qs.set('from', from)
+    if (to) qs.set('to', to)
+    const suffix = qs.toString() ? `?${qs.toString()}` : ''
+    const res = await api<Envelope<Stats>>(`exercises/stats/${userId}${suffix}`)
+    return res.data
   }
 
   return {
     exercise,
-    getExercise,
     addExercise,
     removeExercise,
-    getStats,
-    loadAll,
+    fetchUserPage,
+    fetchFriendsPage,
+    fetchStats,
   }
 })
