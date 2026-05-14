@@ -46,4 +46,7 @@ const show = ref(false)
 </template>
 
 <style scoped>
+main {
+  min-height: 100vh;
+}
 </style>
